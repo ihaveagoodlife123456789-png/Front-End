@@ -31,6 +31,8 @@ const titleArrayed = document.querySelector('h1')
 const titleArrayed1 = titleArrayed.split(" ")
 console.log(titleArrayed)
 
+const hi = 'hii'
+
 
 
 
