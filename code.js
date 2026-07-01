@@ -12,6 +12,9 @@ let login = document.querySelector('#login')
 let mainBar = document.querySelector('#mainBar')
 let subject = document.querySelectorAll('.subject')
 
+document.addEventListener("dblclick", (e) => {
+    e.preventDefault();
+});
 
 
 headingOne.addEventListener("click", () => {
@@ -82,6 +85,7 @@ setTimeout( () => {
     headingFour.style.display = "block";
     headingFour.classList.add('opacityBackTwo')
     headingFour.classList.add('moveFour');
+    login.style.display = 'flex'
 }, 1200)
 
     login.classList.add('loginAnimation')

@@ -1,5 +1,10 @@
 :root{
+}
 
+html {
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 * {
@@ -9,6 +14,7 @@
         user-select: none;
         -webkit-user-drag: none;
         user-drag: none;
+        touch-action: auto;
 }
 
 body {
@@ -22,7 +28,10 @@ body {
     justify-content: center;*/
     gap: none;
     margin: 0;
+    padding: 0;
     overflow: hidden;
+    position: fixed;
+    inset: 0;
 }
 
 .navBar {
@@ -103,7 +112,7 @@ body {
 }
 
 #login {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 30px;
