@@ -1,20 +1,20 @@
-**hii**
+**#Hii**
 --
 
-Welcome to my website => Are you new here? 
-yes => It's a beautiful day!...continue
-no => `Welcome back ${user}`
+**#Beginning font page**
 
-add animation overall
+Set max input in box
 
-add a proxy to nav bar
+**##Whole website**
 
-make @keyframes moveBackUnderlineSubject work
+Add animations overall 
 
-smoother transitions
+**##Main font page**
 
-add anchors to clickable elements
+Add a proxy to nav bar
 
-fix ipad/iphone compatibility
+Make @keyframes moveBackUnderlineSubject work
 
-work with a better log (bouncing o)
+Add anchors to clickable elements
+
+Fix ipad/iphone compatibility
