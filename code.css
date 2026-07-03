@@ -96,7 +96,7 @@ body {
 }
 
 #mainBar {
-    width: 135px;
+    width: 100px;
     height: 100px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -115,26 +115,61 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 135px;
-    height: 0;
+    width: 100px;
+    height: 0px;
     /*padding: 47.5px 0px 47.5px 0px;*/
     border-bottom: 5px solid transparent;
-    transition: all 150ms ease;
 }
 
-.nav:hover {
-    background-color: hsl(224, 72%, 62%);
+.navCloseBy {
+    animation: navCloseBy 150ms ease 0s 1 normal forwards;
+}
+
+.navLeaveBy {
+    animation: navLeaveBy 150ms ease 0s 1 normal forwards;
+}
+
+@keyframes navCloseBy {
+    from {
+        background-color: none;
+    color: none;
+    font-size: 2px;
+    border-bottom: 5px solid transparent;
+    /*margin-bottom: 0px;*/
+    width: 100px;
+    height: 0px;
+    } to {
+        background-color: hsl(224, 72%, 62%);
     color: white;
-    cursor: pointer;
     font-size: 25px;
     border-bottom: 5px solid hsl(224, 72%, 45%);
     margin-bottom: 0px;
-    width: 135px;
+    width: 115px;
     height: 95px;
-    /*padding: 0px;*/
+    }
 }
 
-.nav:active {
+
+/*@keyframes navLeaveBy {
+    from {
+        background-color: hsl(224, 72%, 62%);
+    color: white;
+    font-size: 25px;
+    border-bottom: 5px solid hsl(224, 72%, 45%);
+    margin-bottom: 0px;
+    width: 115px;
+    height: 95px;
+    } to {
+        background-color: none;
+    color: none;
+    font-size: 2px;
+    border-bottom: 5px solid transparent;
+    width: 100px;
+    height: 0px;
+    }
+}*/
+
+.navActive:active {
     background-color: white;
     color: hsl(224, 75%, 38%);
     font-size: 20px;
@@ -274,7 +309,7 @@ body {
 }
 
 .container1.back {
-    width: 100 vw;
+    width: 100vw;
 }
 
 .firstHeading {
@@ -432,6 +467,7 @@ body {
     position: absolute;
     display: none;
     opacity: 0;
+    text-align: center;
 }
 
 .fourthHeading {
@@ -485,6 +521,7 @@ body {
     opacity: 1;
     z-index: 10;
     transform: translateY(-90px);
+    text-align: center;
 }
 
 .waitTime {

@@ -1,3 +1,4 @@
+let body = document.querySelector("body");
 let divOne = document.querySelector(".container1");
 let divTwo = document.querySelector(".container2");
 let button = document.querySelector(".button");
@@ -8,6 +9,9 @@ let headingFour = document.querySelector(".fourthHeading");
 let paragraph = document.querySelector(".FrontParagraph");
 let logo = document.getElementById('logo')
 let navBar = document.querySelector('.navBar')
+let nav = document.querySelectorAll('.nav')
+let navCloseBy = document.querySelector('.navCloseBy')
+let navLeaveBy = document.querySelector('.navLeaveBy')
 let login = document.querySelector('#login')
 let mainBar = document.querySelector('#mainBar')
 let subject = document.querySelectorAll('.subject')
@@ -175,18 +179,19 @@ no.addEventListener('mouseleave', () => {
 
 nameInput.addEventListener('click', () => {
     nameInput.innerHTML = ''
-   /* setTimeout( () => {
-        underAnswer.style.display = "block";
-    }, 2000)*/
-})
+}, {once: true});
 
-globalName = ''
+let globalName = ''
+let overEightlength = ''
 
-nameInput.addEventListener("keydown", function(event) {
-    beginningHelper.style.display = 'block'
+//nameInput.addEventListener("keydown", function(event) {
+body.addEventListener('keydown', function(event) {
    underAnswer.style.display = "block";
    underAnswer.classList.add('opacityBackTwo')
-    if (event.key === "Enter") {
+
+   const hi = getComputedStyle(nameInput).opacity
+
+    if (event.key === "Enter" && (hi === '1')) {
      event.preventDefault();
      let name = nameInput.innerText.trim()
      globalName = name
@@ -196,10 +201,13 @@ nameInput.addEventListener("keydown", function(event) {
     nameInput.classList.add('opacityBack')
     headingThree.style.display = "block";
 
+
     if (name == '') {
             headingThree.innerHTML = 'Hello, Stranger!'
+        }  else if (name.length > 8) {
+            headingThree.innerHTML = `Let's get started, <br> ${globalName}!`
         } else {
-            headingThree.innerHTML = `Let's get started, ${name}!`
+            headingThree.innerHTML = `Let's get started, ${globalName}!`
         }
     
     setTimeout( () => {
@@ -210,9 +218,10 @@ nameInput.addEventListener("keydown", function(event) {
 }, 1200)
 
 setTimeout( () => {
-    beginningHelper.classList.remove('opacityBack')
+    beginningHelper.style.opacity = '0'
+    beginningHelper.style.display = 'block'
     beginningHelper.classList.add('opacityBackTwo')
-}, 2000)
+}, 2400)
 
    underAnswer.classList.remove('opacityBackTwo')
    underAnswer.classList.add('opacityBack')
@@ -227,11 +236,14 @@ setTimeout( () => {
 }
 });
 
+ nameInput.addEventListener('keydown', (e) => {
 
-
-
-
-
+    if (nameInput.innerText.length > 20) {
+        if(e.key !== 'Enter' && e.key !== 'Backspace') {
+             e.preventDefault()
+        }
+    }
+})
 
 
 headingThree.addEventListener('click', () => {
@@ -269,8 +281,8 @@ randomQuote();
 headingThree.classList.remove('opacityBackTwo')
 headingThree.classList.add('opacityBack')
 beginningHelper.classList.remove('opacityBackTwo')
-    beginningHelper.classList.add('opacityBack')
 setTimeout( () => {
+    beginningHelper.style.display = 'none'
     headingThree.style.display = "none";
     headingFour.style.display = "block";
     headingFour.classList.add('opacityBackTwo')
@@ -284,7 +296,11 @@ setTimeout( () => {
 }, 4200)
 
 setTimeout( () => {
-    headingFour.innerHTML = `Welcome ${globalName}!`
+    if (globalName.length > 8) {
+headingFour.innerHTML = `Welcome <br> ${globalName}!`
+    } else {
+        headingFour.innerHTML = `Welcome ${globalName}!`
+    }
     headingFour.classList.remove('opacityBackSlower')
     headingFour.classList.add('opacityBackTwoSlower')
 }, 4500)
@@ -385,3 +401,28 @@ select.addEventListener('mouseleave', () => {
     //select.style.transition = 'moveBackUnderlineSubject 2s ease-out 0s 1 normal forwards';
 });
 });
+
+
+
+nav.forEach(navEl => {
+
+document.addEventListener('mousemove', (e) => {
+    const position = navEl.getBoundingClientRect()
+
+    const navCenterX = position.left + (position.width / 2)
+    const navCenterY = position.top + (position.height / 2)
+
+    const diffX = navCenterX - e.clientX
+    const diffY = navCenterY - e.clientY
+
+    const distance = Math.sqrt(diffX * diffX + diffY * diffY)
+
+    if (distance < 51) {
+        navEl.classList.add('navCloseBy')
+    } else {
+        navEl.classList.remove('navCloseBy')
+    }
+
+})
+
+})

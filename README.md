@@ -1,17 +1,13 @@
 **#Hii**
 --
 
-**#Beginning font page**
-
-Set max input in box
-
 **##Whole website**
 
 Add animations overall 
 
 **##Main font page**
 
-Add a proxy to nav bar
+work with navActive
 
 Make @keyframes moveBackUnderlineSubject work
 
