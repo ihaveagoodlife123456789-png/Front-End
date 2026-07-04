@@ -1,16 +1,16 @@
-**#Hii**
+**#Hii#**
 --
 
-**##Whole website**
+**##Whole website##**
 
-Add animations overall 
+Add animations overall and small details
 
-**##Main font page**
+**##Main font page##**
 
-work with navActive
+understand from main.js l/251
 
-Make @keyframes moveBackUnderlineSubject work
+give purpose to links
 
-Add anchors to clickable elements
+**##Others##**
 
 Fix ipad/iphone compatibility
